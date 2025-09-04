@@ -1,7 +1,7 @@
 import streamlit as st
+from app.data_handler import handle_uploaded_file
 from app.ui import render_ui
 from app.workflow import run_workflow
-from app.data_handler import handle_uploaded_file
 
 def main():
     st.title("📊 생산 데이터 분석 AI Agent")
