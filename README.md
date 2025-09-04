@@ -136,6 +136,12 @@ MODEL_CONNECT_API_KEY=당신의 API KEY
 MODEL=사용하고자 하는 LLM 모델 명칭
 ```
 
+5. 커널 등록
+현재 가상 환경을 Jupyter에서 사용할 수 있도록 커널을 등록함
+``` bash
+python -m ipykernel install --user --name=python3 --display-name "Python 3 (.venv)"
+```
+
 ## ▶️ 실행 방법
 ``` bash
 streamlit run main.py
