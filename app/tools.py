@@ -1,0 +1,11 @@
+import pandas as pd
+
+def analyze_dataframe(df: pd.DataFrame, prompt: str) -> str:
+    """사용자 프롬프트에 맞게 DataFrame 분석"""
+    # 간단한 예시 (추후 고도화 가능)
+    if "평균" in prompt:
+        return str(df.mean(numeric_only=True))
+    elif "합계" in prompt:
+        return str(df.sum(numeric_only=True))
+    else:
+        return f"데이터 크기: {df.shape}, 컬럼: {list(df.columns)}"
