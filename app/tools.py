@@ -5,8 +5,8 @@ def analyze_dataframe(df, prompt):
 
     # 간단한 예시 (추후 고도화 가능)
     if "평균" in prompt:
-        return str(df.mean(numeric_only=True))
+        return f"{str(df.mean(numeric_only=True))}이야. {prompt}"
     elif "합계" in prompt:
-        return str(df.sum(numeric_only=True))
+        return f"{str(df.sum(numeric_only=True))}이야. {prompt}"
     else:
-        return f"데이터 크기: {df.shape}, 컬럼: {list(df.columns)}"
+        return f"데이터 크기: {df.shape}, 컬럼: {list(df.columns)}이야. {prompt}"
