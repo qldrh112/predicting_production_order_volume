@@ -76,11 +76,11 @@ predicting_production_order_volume/
 ├── .venv/                   # 가상 환경
 ├── app/
 │   ├── __init__.py
-│   ├── data_handler.py      # 데이터 업로드, 마스킹, 전처리
-│   ├── kernel_manager.py    # Jupyter 커널 관리 (KernelManager 래퍼)
-│   ├── tools.py             # 엑셀 데이터 분석 로직
-│   ├── ui.py                # UI 관련 코드
-│   └── workflow.py          # LangChain workflow (LLM 연결 + Jupyter 커널 호출)
+│   ├── data_handler.py      # Xlsx 전처리 및 마스킹
+│   ├── kernel_manager.py    # Jupyter 커널 관리
+│   ├── tools.py             # DataFrame 분석/조작 함수
+│   ├── ui.py                # Streamlit UI 로직 분리
+│   └── workflow.py          # LLM + Agent + memory + tool orchestration
 │
 ├── config/
 │   ├── __init__.py
@@ -97,7 +97,7 @@ predicting_production_order_volume/
 │
 ├── .env                     # 환경 변수 관리
 ├── .gitginore               # git으로 통제하지 않는 객체 관리
-├── main.py                  # Streamlit 실행 진입점
+├── main.py                  # Streamlit 실행 진입점 및 UI endpoint
 ├── requirements.txt         # 의존성 관리
 └── README.md                
 ```

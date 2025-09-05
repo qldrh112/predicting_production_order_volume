@@ -23,8 +23,8 @@ def main():
         st.subheader("🔎 분석 결과")
         st.write(result)
 
-        # 결과에 대해 무조건 xlsx로 받는다고 하면, main.py에 xslx 반환 로직을 추가하고
-        # 그렇지 않다고 하면 st.write를 하
+        # 결과에 대해 무조건 xlsx로 받는다고 하면, st.write을 삭제해도 될 것 같기도 하고,,,
+        # 그렇지 않다고 하면 st.write를 유지해야지요.
 
 if __name__ == "__main__":
     main()
