@@ -1,7 +1,8 @@
 import pandas as pd
 
-def analyze_dataframe(df: pd.DataFrame, prompt: str) -> str:
-    """사용자 프롬프트에 맞게 DataFrame 분석"""
+def analyze_dataframe(df, prompt):
+    """사용자 프롬프트에 따라서 DataFrame에 적절한 조작을 가하여 프롬프트를 반환하는 함수"""
+
     # 간단한 예시 (추후 고도화 가능)
     if "평균" in prompt:
         return str(df.mean(numeric_only=True))

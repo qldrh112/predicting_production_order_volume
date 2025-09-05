@@ -1,18 +1,18 @@
+from langchain_google_genai import ChatGoogleGenerativeAI
 from app.kernel_manger import JupyterKernel
 from app.tools import analyze_dataframe
-from langchain_google_genai import ChatGoogleGenerativeAI
 from config.settings import MODEL, GOOGLE_API_KEY
 
 def run_workflow(prompt, df):
-    """LLM + DataFrame 분석 워크플로우"""
-    # LLM 초기화
-    llm = ChatGoogleGenerativeAI(model=MODEL, api_key=GOOGLE_API_KEY)
+    """DataFrame 분석 결과를 Jupyter 커널을 통해 실행한 뒤, LLM에 전달하여 응답을 반환하는 워크플로우를 실행"""
 
-    # 데이터 분석
+    # 사용자가 입력한 프롬프트에 따라 적절한 DataFrame 조작을 한 뒤, 반환
     code_to_run = analyze_dataframe(df, prompt)
 
-    # 3️⃣ Jupyter Kernel 실행
+    # LLM 및 Jupyter Kernel 초기화
+    llm = ChatGoogleGenerativeAI(model=MODEL, api_key=GOOGLE_API_KEY)
     kernel = JupyterKernel()
+
     try:
         execution_result = kernel.run_code(code_to_run)
     finally:

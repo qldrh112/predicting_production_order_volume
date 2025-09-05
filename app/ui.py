@@ -1,8 +1,11 @@
 import streamlit as st
 
 def render_ui():
-    st.sidebar.header("데이터 입력")
-    uploaded_file = st.sidebar.file_uploader("엑셀 파일 업로드", type=["xlsx"])
-    user_prompt = st.text_area("분석 요청 입력", placeholder="예: 지난달 생산량 트렌드를 분석해줘")
+    """
+    streamlit 서버를 통해 사용자로부터 xlsx 파일과 프롬프트를 입력받아 시스템 내부로 반환하는 함수
+    """
+    st.sidebar.header("파일 추가")
+    uploaded_file = st.sidebar.file_uploader("xlsx 파일 추가", type=["xlsx"])
+    user_prompt = st.text_area("xlsx 파일으로 무엇을 할까요?", placeholder="무엇이든 물어보세요.") #placeholder는 chatgpt를 참고함
 
     return uploaded_file, user_prompt
