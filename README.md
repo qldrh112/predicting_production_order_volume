@@ -24,7 +24,7 @@ LangChain 기반의 **에이전트 구조**로 설계되어 확장이 쉽습니�
 ## 🔧 아키텍처
 
 본 프로젝트는 LangChain 기반 AI Agent로, 생산 데이터(XLSX)를 분석하고 인사이트를 제공합니다.
-
+![software_architecture](https://github-production-user-asset-6210df.s3.amazonaws.com/69291489/486480411-91e277ce-0837-496b-aeb6-14f8d52f72e4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250907%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250907T042919Z&X-Amz-Expires=300&X-Amz-Signature=2fd882d0beb068bf884663034913212a68aca91d308db1bc3b018bf25c8b4295&X-Amz-SignedHeaders=host)
 ```
 [사용자] 
     │
@@ -86,7 +86,8 @@ predicting_production_order_volume/
 │   ├── __init__.py
 │   └── settings.py          # 환경 변수 불러오기
 │
-├── design/                  # 설계 문서
+├── docs/                    # 문서
+│   ├── meeting_note         # 회의록
 │   └── Softward_requirements_Specification.xlsx          # 요구사항명세서
 │
 ├── output/                  # 결과물
@@ -149,32 +150,45 @@ streamlit run main.py
 
 브라우저(기본: http://localhost:8501)에서 서비스를 사용할 수 있습니다.
 
-
 ## 📊 예시 화면
 1. 엑셀 파일 업로드
 2. "이번 달 생산량 추이를 알려줘" 입력
 3. 분석 결과 확인
 4. "보고서를 xlsx로 저장해줘" → xlsx 다운로드
 
-## 🔧 확장 아이디어
-- DB 연결: 엑셀 업로드 대신 DB에서 데이터 직접 조회
-- 자동 리포트 생성: 매일/매주 분석 보고서를 자동 저장
-- 대시보드 연동: 분석 결과를 시각화하여 웹 대시보드 제공
+## 💡 프로젝트 관리
+### 프로젝트 일정 관리
 
-## 💡 협업 방식
+- **형상 관리 & 이슈 관리**: GitHub  
+- **일정 관리 & 태스크 관리**: Jira (무료 요금제, 10 팀 이내)  
+  - Epic → Story → Task 구조로 관리  
+  - 시작일/마감일 설정, 칸반 보드 기반으로 진행  
+- **GitHub ↔ Jira 연동**
+  - 커밋/PR 메시지에 Jira 이슈 키 포함 (예: `PROJ-12`)
+  - Smart Commit (`#done`, `#in-progress`) 으로 Jira 상태 자동 변경
+- **회의록 관리**
+  - GitHub 저장소에 `docs/meeting_notes/` 하위에 `.md`로 관리
+
+### 협업 방식
 
 Git 브랜치 전략: GitFlow 또는 Feature Branch 기반
-- main / develop / feature/* / hotfix/* 등  
+- main / develop / feature/* / hotfix/* 등
+- PR(풀 리퀘스트) 리뷰   
+- 최소 1명 이상 코드 리뷰 필수  
+- 코드 스타일/포맷팅 확인 (PEP8, black 등)  
 
-커밋 메시지 규칙 (권장)
+#### 커밋 메시지 규칙
 - feat: 새로운 기능 추가
 - fix: 버그 수정
 - refactor: 코드 구조 개선
 - docs: 문서 변경
+- comment: 주석
 - chore: 빌드, 패키지, 환경 설정 등
-- PR(풀 리퀘스트) 리뷰
-- 최소 1명 이상 코드 리뷰 필수
-- 코드 스타일/포맷팅 확인 (PEP8, black 등)
+
+## 🔧 추후 개선 사항
+- DB 연결: 엑셀 업로드 대신 DB에서 데이터 직접 조회
+- 자동 리포트 생성: 매일/매주 분석 보고서를 자동 저장
+- 대시보드 연동: 분석 결과를 시각화하여 웹 대시보드 제공
 
 ## 📌 주의사항
 - API Key, 개인정보 등 민감 데이터는 절대로 GitHub 등 외부에 노출 금지
